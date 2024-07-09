@@ -42,7 +42,7 @@ const Login = () => {
             <div className='w-[350px] text-[#d0d2d6] p-2'>
                 <div className='bg-[#283046] p-4 rounded-md'>
                     <h2 className='text-xl mb-3'>Welcome to Agrisoko Sellers Portal</h2>
-                    <p className='text-sm mb-3'>Please signin to your account and start your bussiness</p>
+                    <p className='text-sm mb-3'>Please signin</p>
                     <form onSubmit={submit}>
                         <div className='flex flex-col w-full gap-1 mb-3'>
                             <label htmlFor="email">Email</label>
