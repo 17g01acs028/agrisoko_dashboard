@@ -7,7 +7,4 @@ export const overrideStyle = {
     alignItems: "center"
 }
 
-export const socket = io('ws://agrisoko-backend.vercel.app', {
-    transports: ['websocket', 'polling'],
-    withCredentials: true
-});
+export const socket = io('http://localhost:5000')

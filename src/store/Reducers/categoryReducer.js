@@ -14,7 +14,20 @@ export const categoryAdd = createAsyncThunk(
         }
     }
 )
-
+export const categoryDelete = createAsyncThunk(
+    'category/categoryDelete',
+    async ({id}, { rejectWithValue, fulfillWithValue }) => {
+        try {
+            console.log(id);
+            const formData = new FormData()
+            formData.append('id', id)
+            const { data } = await api.post('/category-delete/',formData,{ withCredentials: true })
+            return fulfillWithValue(data)
+        } catch (error) {
+            return rejectWithValue(error.response.data)
+        }
+    }
+)
 export const get_category = createAsyncThunk(
     'category/get_category',
     async ({ parPage, page, searchValue }, { rejectWithValue, fulfillWithValue }) => {
@@ -60,6 +73,8 @@ export const categoryReducer = createSlice({
         [get_category.fulfilled]: (state, { payload }) => {
             state.totalCategory = payload.totalCategory
             state.categorys = payload.categorys
+        }, [categoryDelete.fulfilled]: (state, { payload }) => {
+            state.successMessage = payload.message
         },
     }
 
